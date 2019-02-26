@@ -1,6 +1,6 @@
-//version 0.3
+let versao = 5;
 
-self.addEventListener("install", function() {
+self.addEventListener("activate", function() {
     let arquivos = [
         "/",
         "css/estilos.css",
@@ -40,9 +40,13 @@ self.addEventListener("install", function() {
         "service-worker.js",
         "favicon.ico" ];
 
-    caches.open("ceep-arquivos")
+    caches.open("ceep-arquivos-"+versao)
     .then(cache => {
         cache.addAll(arquivos);
+
+        for(let i = versao-1; i >= 0; i--) {
+            caches.delete("ceep-arquivos-"+i);
+        }
     });
 });
 
