@@ -9,6 +9,21 @@ const Mural = (function(_render, Filtro){
     Filtro.on("filtrado", render)
 
     function preparaCartao(cartao) {
+        const urlImagens = Cartao.pegaImagens(cartao);
+
+        urlImagens.forEach(url => {
+            fetch(url)
+                .then(resposta => {
+                    caches.open("ceep-imagens").then(cache => {
+                        cache.put(url, resposta);
+                    });
+                })
+                .catch(error => {
+                    console.log("Provável erro de CORS... =(");
+                    console.log(error);
+                });
+        });
+
         cartao.on("mudanca.**", salvaCartoes);
         cartao.on("remocao", () => {
             cartoes = cartoes.slice(0);
