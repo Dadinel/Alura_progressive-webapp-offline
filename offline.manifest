@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#versao 5
+#versao 1
 
 CACHE:
 css/estilos.css
@@ -38,7 +38,9 @@ img/bin2.svg
 img/close.svg
 img/edit.svg
 img/palette.svg
+img/appicon.png
 favicon.ico
+app.manifest
 
 NETWORK:
 *

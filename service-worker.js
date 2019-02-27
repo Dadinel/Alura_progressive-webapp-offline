@@ -1,4 +1,4 @@
-let versao = 5;
+let versao = 1;
 
 self.addEventListener("activate", function() {
     let arquivos = [
@@ -36,8 +36,10 @@ self.addEventListener("activate", function() {
         "img/close.svg",
         "img/edit.svg",
         "img/palette.svg",
+        "img/appicon.png",
         "js/sw/registra.js",
         "service-worker.js",
+        "app.manifest",
         "favicon.ico" ];
 
     caches.open("ceep-arquivos-"+versao)
